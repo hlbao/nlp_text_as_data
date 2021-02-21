@@ -9,7 +9,6 @@ def stopwordslist():
     stopwords = [line.strip() for line in open('./stopwords.txt',encoding='UTF-8').readlines()]
     return stopwords
 
-# 对句子进行中文分词
 def seg_depart(sentence):
     sentence_depart = jieba.cut(sentence.strip())
     stopwords = stopwordslist()
@@ -21,6 +20,7 @@ def seg_depart(sentence):
             outstr += " "
     return outstr
 
+#-----------------------------------------------------------------------------
 if not os.path.exists('./cnews.train_jieba.txt'):
     # 给出文档路径
     filename = "./cnews.train.txt"
